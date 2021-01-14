@@ -25,8 +25,8 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I fill all data in Thông tin phê duyệt as below
       | Phê duyệt cá nhân |
     Then I save all information
-    And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I get the above file code
+    And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
     Then I choose "Nguyễn Văn A2" user to approve
 
