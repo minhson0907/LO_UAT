@@ -1,15 +1,15 @@
-@regression @hspheduyetDVKD
+@regression @hspheduyetDVKD_full_returnA5_kiemsoat
 Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
 
-  @assign_DVKD-01
-  Scenario: register Hồ sơ thẻ phê duyệt tại Đơn vị kinh doanh with cif number
+  @hspheduyetDVKD_full_returnA5_kiemsoat-01
+  Scenario Outline: register Hồ sơ thẻ phê duyệt tại Đơn vị kinh doanh with cif number
     Given I access link with "a1nv" and "Abc123!@#"
     When I click New button
     Then I choose "Hồ sơ phê duyệt tại ĐVKD"
     And I fill all data in Thông Tin Hồ sơ as below
       | Hồ sơ phê duyệt tại ĐVKD | 002 ~ CN PHU NHUAN | Hồ sơ thông thường | TN01 - TN từ lương |
     And I fill all data in Thông tin chủ thẻ chính with cif as below
-      | Customer CIF | 00004809 | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tỉnh Tuyên Quang | 2 | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
+      | Customer CIF | <cif> | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tỉnh Tuyên Quang | 2 | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
     And I fill all data in Thông tin nghề nghiệp as below
       | Nhân viên | Chính thức | BUSINESS NAME | DN tiền gửi Chi lương tại HDBank | Cổ phần | 0285556664 | 123 | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành |
     And I fill all data in Thông tin tài chính as below
@@ -19,60 +19,87 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | ABT | Email | Thu phí thường niên | Địa chỉ thường trú | 0983234167 | 001-Local VCCS Credit Chain | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | 0983234167 | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 |
     And I fill all data at Thông tin thẩm định as below
-      | Công ty | TN01 - TN từ lương | Đồng ý | A01 - Quy định | 30000000 |
+      | Công ty | TN01 - TN từ lương | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
-      | Phê duyệt cá nhân | 30000000 |
+      | Phê duyệt cá nhân |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
     Then I choose "Nguyễn Văn A2" user to approve
+    Examples:
+      | cif      | card type                           | client code | fee policy               | limit     |
+#      | 00015405 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
+      | 00015405 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
+#      | 00015405 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
+#      | 00015405 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
+#      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
-  @assign_DVKD-02
+  @hspheduyetDVKD_full_returnA5_kiemsoat-02
   Scenario: approve with user a2nv
     Given I access link with "a2nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A2 user
     Then I select "Nguyễn Văn A3" user to approve
 
-  @assign_DVKD-03
+  @hspheduyetDVKD_full_returnA5_kiemsoat-03
   Scenario: approve with user a3nv
     Given I access link with "a3nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A3 user
     Then I select "Nguyễn Văn A4" user to approve
 
-  @assign_DVKD-04
+  @hspheduyetDVKD_full_returnA5_kiemsoat-04
   Scenario: approve with user a4nv
     Given I access link with "a4nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A4 user
     Then I select "Nguyễn Văn A8" user to approve
 
-  @assign_DVKD-05
+  @hspheduyetDVKD_full_returnA5_kiemsoat-05
   Scenario: approve with user a8nv
     Given I access link with "a8nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A8 user
     Then I select "Nguyễn Văn A4" user to approve
 
-  @assign_DVKD-06
+  @hspheduyetDVKD_full_returnA5_kiemsoat-06
   Scenario: approve with user a4nv
     Given I access link with "a4nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A4 user
     Then I select "Nguyễn Văn A5" user to approve
 
-  @assign_DVKD-07
+  @hspheduyetDVKD_full_returnA5_kiemsoat-07
+  Scenario Outline: approve with user a5nv
+    Given I access link with "a5nv" and "Abc123!@#"
+    When I search with the above request code from "QLPheDuyetYeuCau"
+    And I return with the above file code from A5 user
+    Then I select "<user>" user to return
+    Examples:
+      | user      |
+#      | Người tạo yêu cầu  |
+      | Kiểm soát |
+#      | Phê duyệt tại ĐVKD |
+#      | Tiếp nhận hồ sơ    |
+
+  @hspheduyetDVKD_full_returnA5_kiemsoat-08
+  Scenario: approve with user a2nv
+    Given I access link with "a2nv" and "Abc123!@#"
+    When I search with the above request code from "QLPheDuyetYeuCau"
+    And I send additional request with the above file code from A2 user
+    Then I confirm the above additional request with A2 user
+
+  @hspheduyetDVKD_full_returnA5_kiemsoat-09
   Scenario: approve with user a5nv
     Given I access link with "a5nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A5 user
     Then I select "Nguyễn Văn A6" user to approve
 
-  @assign_DVKD-08
+  @hspheduyetDVKD_full_returnA5_kiemsoat-10
   Scenario: approve with user a6nv
     Given I access link with "a6nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"

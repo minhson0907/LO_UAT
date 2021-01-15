@@ -63,8 +63,8 @@ Feature: Register with user a1nv
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
       | cif      | card type                           | client code | fee policy               | limit     |
-      | 00015405 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
-      | 00015405 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
-      | 00015405 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
-      | 00015405 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
-      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+      | 00015209 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
+      | 00015209 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
+      | 00015209 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
+      | 00015209 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
+      | 00015209 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |

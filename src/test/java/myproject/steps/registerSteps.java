@@ -1,6 +1,7 @@
 package myproject.steps;
 
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -330,12 +331,34 @@ public class registerSteps extends TestBase {
 
     }
 
-    @When("^I search with the above request code$")
-    public void iSearchWithTheAboveRequestCode() throws Exception {
-        waitElement(By.xpath("//a[contains(@href,'QLPheDuyetYeuCau')]"));
-        driver.findElement(By.xpath("//a[contains(@href,'QLPheDuyetYeuCau')]")).click();
+    @And("^I return with the above file code from (A2|A3|A5|A6|A8) user$")
+    public void iReturnWithTheAboveFileCodeFromAUser(String type) throws Exception{
+        switch (type){
+            default:
+                waitElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'YeuCauBoSung')]"));
+                driver.findElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'YeuCauBoSung')]")).click();
+                Thread.sleep(2000);
+                break;
+        }
+    }
+
+    @And("^I send additional request with the above file code from (A1|A2|A3|A4|A5|A6|A7|A8) user$")
+    public void iSendAdditionalRequestWithTheAboveFileCodeFromAUser(String type) throws Exception{
+        switch (type){
+            default:
+                waitElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'ChuyenBS')]"));
+                driver.findElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'ChuyenBS')]")).click();
+                Thread.sleep(2000);
+                break;
+        }
+    }
+
+    @When("^I search with the above request code from \"([^\"]*)\"$")
+    public void iSearchWithTheAboveRequestCode(String QL) throws Exception {
+        waitElement(By.xpath("//a[contains(@href,'"+QL+"')]"));
+        driver.findElement(By.xpath("//a[contains(@href,'"+QL+"')]")).click();
         driver.findElement(By.xpath("//input[contains(@id,'NoiDungTimKiem')]")).sendKeys(read_file("fileCode.txt"));
-        driver.findElement(By.xpath("//input[contains(@id,'btnSearch')]")).click();
+        driver.findElement(By.xpath("//input[@value='Tìm kiếm']")).click();
         Thread.sleep(2000);
     }
 
@@ -368,6 +391,12 @@ public class registerSteps extends TestBase {
         driver.findElement(By.id("btnXacNhanPheDuyet")).click();
     }
 
+    @Then("^I select \"([^\"]*)\" user to return$")
+    public void iSelectUserToReturn(String user) throws Throwable {
+        waitElement(By.xpath("//option[@title='"+user+"']"));
+        driver.findElement(By.xpath("//option[@title='"+user+"']")).click();
+        driver.findElement(By.id("btnYeuCauBoSung")).click();
+    }
 
     @Then("^I input \"([^\"]*)\" to end the process$")
     public void iInputToEndTheProcess(String email) throws Throwable {
@@ -394,5 +423,18 @@ public class registerSteps extends TestBase {
         assertTrue(actualString.contains(status));
     }
 
+    @Then("^I confirm the above additional request with (A1|A2|A3|A4|A5|A6|A7|A8) user$")
+    public void iConfirmTheAboveAdditionalRequest(String type) throws Exception {
+        switch (type){
+            case"A1":
+                waitElement(By.id("btnXacNhanGuiThongTin"));
+                driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
+                break;
+            default:
+                waitElement(By.id("btnYeuCauBoSung"));
+                driver.findElement(By.id("btnYeuCauBoSung")).click();
+                break;
+        }
 
+    }
 }

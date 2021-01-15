@@ -29,35 +29,35 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - full luồng
   @assign_TTT_self-02
   Scenario: approve with user a4nv
     Given I access link with "a4nv" and "Abc123!@#"
-    When I search with the above request code
+    When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A4 user
     Then I select "Nguyễn Văn A8" user to approve
 
   @assign_TTT_self-03
   Scenario: approve with user a8nv
     Given I access link with "a8nv" and "Abc123!@#"
-    When I search with the above request code
+    When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A8 user
     Then I select "Nguyễn Văn A4" user to approve
 
   @assign_TTT_self-04
   Scenario: approve with user a4nv
     Given I access link with "a4nv" and "Abc123!@#"
-    When I search with the above request code
+    When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A4 user
     Then I select "Nguyễn Văn A5" user to approve
 
   @assign_TTT_self-05
   Scenario: approve with user a5nv
     Given I access link with "a5nv" and "Abc123!@#"
-    When I search with the above request code
+    When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A5 user
     Then I select "Nguyễn Văn A6" user to approve
 
   @assign_TTT_self-06
   Scenario: approve with user a6nv
     Given I access link with "a6nv" and "Abc123!@#"
-    When I search with the above request code
+    When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A6 user
     And I input "huyenlm2@hdbank.com.vn" to end the process
     Then I search "Tất cả" status
