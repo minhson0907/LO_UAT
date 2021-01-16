@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import myproject.base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
@@ -119,6 +120,8 @@ public class registerSteps extends TestBase {
         Thread.sleep(1000);
         Select nghenghiepphuongxa = new Select(driver.findElement(By.xpath("//select[contains(@id,'NgheNghiep_PhuongXa')]")));
         nghenghiepphuongxa.selectByVisibleText(data.get(0).get(9));
+        driver.findElement(By.xpath("//input[contains(@id,'NgheNghiep_SoNhaTenDuong')]")).clear();
+        driver.findElement(By.xpath("//input[contains(@id,'NgheNghiep_SoNhaTenDuong')]")).sendKeys(data.get(0).get(10));
     }
 
     @And("^I fill all data in Thông tin tài chính as below$")
@@ -171,6 +174,11 @@ public class registerSteps extends TestBase {
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_HoTen')]")).sendKeys(data.get(0).get(8));
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_CMND')]")).sendKeys(data.get(0).get(9));
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_SoDTDD')]")).sendKeys(data.get(0).get(10));
+        if (data.get(0).get(3).equals("Thu phí thường niên")) {
+            System.out.println("Nothing");
+        } else {
+            driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_ThoiGianApDung')]")).sendKeys(data.get(0).get(11));
+        }
     }
 
     @And("^I fill all data in Thông tin thẩm định as below$")
@@ -332,8 +340,8 @@ public class registerSteps extends TestBase {
     }
 
     @And("^I return with the above file code from (A2|A3|A5|A6|A8) user$")
-    public void iReturnWithTheAboveFileCodeFromAUser(String type) throws Exception{
-        switch (type){
+    public void iReturnWithTheAboveFileCodeFromAUser(String type) throws Exception {
+        switch (type) {
             default:
                 waitElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'YeuCauBoSung')]"));
                 driver.findElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'YeuCauBoSung')]")).click();
@@ -343,8 +351,8 @@ public class registerSteps extends TestBase {
     }
 
     @And("^I send additional request with the above file code from (A1|A2|A3|A4|A5|A6|A7|A8) user$")
-    public void iSendAdditionalRequestWithTheAboveFileCodeFromAUser(String type) throws Exception{
-        switch (type){
+    public void iSendAdditionalRequestWithTheAboveFileCodeFromAUser(String type) throws Exception {
+        switch (type) {
             default:
                 waitElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'ChuyenBS')]"));
                 driver.findElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'ChuyenBS')]")).click();
@@ -355,8 +363,8 @@ public class registerSteps extends TestBase {
 
     @When("^I search with the above request code from \"([^\"]*)\"$")
     public void iSearchWithTheAboveRequestCode(String QL) throws Exception {
-        waitElement(By.xpath("//a[contains(@href,'"+QL+"')]"));
-        driver.findElement(By.xpath("//a[contains(@href,'"+QL+"')]")).click();
+        waitElement(By.xpath("//a[contains(@href,'" + QL + "')]"));
+        driver.findElement(By.xpath("//a[contains(@href,'" + QL + "')]")).click();
         driver.findElement(By.xpath("//input[contains(@id,'NoiDungTimKiem')]")).sendKeys(read_file("fileCode.txt"));
         driver.findElement(By.xpath("//input[@value='Tìm kiếm']")).click();
         Thread.sleep(2000);
@@ -393,8 +401,8 @@ public class registerSteps extends TestBase {
 
     @Then("^I select \"([^\"]*)\" user to return$")
     public void iSelectUserToReturn(String user) throws Throwable {
-        waitElement(By.xpath("//option[@title='"+user+"']"));
-        driver.findElement(By.xpath("//option[@title='"+user+"']")).click();
+        waitElement(By.xpath("//option[@title='" + user + "']"));
+        driver.findElement(By.xpath("//option[@title='" + user + "']")).click();
         driver.findElement(By.id("btnYeuCauBoSung")).click();
     }
 
@@ -425,8 +433,8 @@ public class registerSteps extends TestBase {
 
     @Then("^I confirm the above additional request with (A1|A2|A3|A4|A5|A6|A7|A8) user$")
     public void iConfirmTheAboveAdditionalRequest(String type) throws Exception {
-        switch (type){
-            case"A1":
+        switch (type) {
+            case "A1":
                 waitElement(By.id("btnXacNhanGuiThongTin"));
                 driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
                 break;
@@ -436,5 +444,16 @@ public class registerSteps extends TestBase {
                 break;
         }
 
+    }
+
+    @And("^I edit information before sending request with the above file code from (A1|A2|A3|A4|A5|A6|A7|A8) user$")
+    public void iEditInformationBeforeSendingRequestWithTheAboveFileCodeFromAUser(String user) throws Exception {
+        switch (user) {
+            default:
+                waitElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'Sua')]"));
+                driver.findElement(By.xpath("//tr//td[text()='" + read_file("fileCode.txt") + "']//following-sibling::td//a//img[contains(@src,'Sua')]")).click();
+                Thread.sleep(2000);
+                break;
+        }
     }
 }
