@@ -303,8 +303,12 @@ public class registerSteps extends TestBase {
         List<List<String>> data = contactInfo.raw();
         Select chuongtrinhtiepthi = new Select(driver.findElement(By.xpath("//select[contains(@id,'DonViTiepNhan_ChuongTrinhTiepThi')]")));
         chuongtrinhtiepthi.selectByVisibleText(data.get(0).get(0));
-        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaSoNguoiGioiThieu')]")).sendKeys(data.get(0).get(1));
-        driver.findElement(By.id("btnSearchMaGioiThieu")).click();
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).clear();
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).sendKeys(data.get(0).get(1));
+        clickToElementByJS("//button[@id='btnMaNvHDBAnk']");
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaSoNguoiGioiThieu')]")).clear();
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaSoNguoiGioiThieu')]")).sendKeys(data.get(0).get(2));
+        clickToElementByJS("//button[@id='btnSearchMaGioiThieu']");
     }
 
     @And("^I get the above file code$")

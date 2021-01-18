@@ -118,13 +118,16 @@ public class editSteps extends TestBase {
     }
 
     @And("^I edit information in Đơn vị tiếp nhận hồ sơ as below$")
-    public void iEditInformationInĐơnVịTiếpNhậnHồSơAsBelow(DataTable contactInfo) {
+    public void iEditInformationInĐơnVịTiếpNhậnHồSơAsBelow(DataTable contactInfo) throws Exception {
         List<List<String>> data = contactInfo.raw();
         Select chuongtrinhtiepthi = new Select(driver.findElement(By.xpath("//select[contains(@id,'DonViTiepNhan_ChuongTrinhTiepThi')]")));
         chuongtrinhtiepthi.selectByVisibleText(data.get(0).get(0));
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).clear();
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).sendKeys(data.get(0).get(1));
+        clickToElementByJS("//button[@id='btnMaNvHDBAnk']");
         driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaSoNguoiGioiThieu')]")).clear();
-        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaSoNguoiGioiThieu')]")).sendKeys(data.get(0).get(1));
-        driver.findElement(By.id("btnSearchMaGioiThieu")).click();
+        driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaSoNguoiGioiThieu')]")).sendKeys(data.get(0).get(2));
+        clickToElementByJS("//button[@id='btnSearchMaGioiThieu']");
     }
 
     @And("^I edit information in Thông tin thẻ tín dụng$")
@@ -146,8 +149,15 @@ public class editSteps extends TestBase {
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).sendKeys(data.get(0).get(1));
         Thread.sleep(1000);
         driver.findElement(By.xpath("//tr[contains(@data-id,'" + data.get(0).get(1) + "')]")).click();
+        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).sendKeys(data.get(0).get(7));
+        Thread.sleep(1000);
         Select trichnotudongthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_TrichNoTuDongThe')]")));
-        trichnotudongthe.selectByVisibleText(data.get(0).get(7));
+        trichnotudongthe.selectByVisibleText(data.get(0).get(8));
+        if (data.get(0).get(3).equals("Thu phí thường niên")) {
+            System.out.println("Nothing");
+        } else {
+            driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_ThoiGianApDung')]")).sendKeys(data.get(0).get(9));
+        }
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_HoTen')]")).clear();
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_HoTen')]")).sendKeys(data.get(0).get(8));
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_CMND')]")).clear();
