@@ -32,10 +32,10 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     Examples:
       | cif      | card type                           | client code | fee policy               | limit    |
 #      | 00004168 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
-#      | 00004168 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
+      | 00004168 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
 #      | 00004168 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
 #      | 00004168 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000 |
-      | 00004168 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+#      | 00004168 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
   @hspheduyetDVKD_full_returnA5_kiemsoat-02
   Scenario: approve with user a2nv
@@ -86,38 +86,38 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I send request with the above file code from A4 user
     Then I select "Nguyễn Văn A5" user to approve
 
-#  @hspheduyetDVKD_full_returnA5_kiemsoat-07
-#  Scenario Outline: return from user a5nv
-#    Given I access link with "a5nv" and "Abc123!@#"
-#    When I search with the above request code from "QLPheDuyetYeuCau"
-#    And I return with the above file code from A5 user
-#    Then I select "<user>" user to return
-#    Examples:
-#      | user      |
-##      | Người tạo yêu cầu  |
-#      | Kiểm soát |
-##      | Phê duyệt tại ĐVKD |
-##      | Tiếp nhận hồ sơ    |
+  @hspheduyetDVKD_full_returnA5_kiemsoat-07
+  Scenario Outline: return from user a5nv
+    Given I access link with "a5nv" and "Abc123!@#"
+    When I search with the above request code from "QLPheDuyetYeuCau"
+    And I return with the above file code from A5 user
+    Then I select "<user>" user to return
+    Examples:
+      | user      |
+#      | Người tạo yêu cầu  |
+      | Kiểm soát |
+#      | Phê duyệt tại ĐVKD |
+#      | Tiếp nhận hồ sơ    |
 
-#  @hspheduyetDVKD_full_returnA5_kiemsoat-08
-#  Scenario: approve with user a2nv
-#    Given I access link with "a2nv" and "Abc123!@#"
-#    When I search with the above request code from "QLPheDuyetYeuCau"
-#    And I send additional request with the above file code from A2 user
-#    Then I confirm the above additional request with A2 user
-#
-#  @hspheduyetDVKD_full_returnA5_kiemsoat-09
-#  Scenario: approve with user a5nv
-#    Given I access link with "a5nv" and "Abc123!@#"
-#    When I search with the above request code from "QLPheDuyetYeuCau"
-#    And I send request with the above file code from A5 user
-#    Then I select "Nguyễn Văn A6" user to approve
-#
-#  @hspheduyetDVKD_full_returnA5_kiemsoat-10
-#  Scenario: approve with user a6nv
-#    Given I access link with "a6nv" and "Abc123!@#"
-#    When I search with the above request code from "QLPheDuyetYeuCau"
-#    And I send request with the above file code from A6 user
-#    And I input "huyenlm2@hdbank.com.vn" to end the process
-#    Then I search "Tất cả" status
-#    And I verify the above request code exist in Quản lý table with status is "Close"
+  @hspheduyetDVKD_full_returnA5_kiemsoat-08
+  Scenario: approve with user a2nv
+    Given I access link with "a2nv" and "Abc123!@#"
+    When I search with the above request code from "QLPheDuyetYeuCau"
+    And I send additional request with the above file code from A2 user
+    Then I confirm the above additional request with A2 user
+
+  @hspheduyetDVKD_full_returnA5_kiemsoat-09
+  Scenario: approve with user a5nv
+    Given I access link with "a5nv" and "Abc123!@#"
+    When I search with the above request code from "QLPheDuyetYeuCau"
+    And I send request with the above file code from A5 user
+    Then I select "Nguyễn Văn A6" user to approve
+
+  @hspheduyetDVKD_full_returnA5_kiemsoat-10
+  Scenario: approve with user a6nv
+    Given I access link with "a6nv" and "Abc123!@#"
+    When I search with the above request code from "QLPheDuyetYeuCau"
+    And I send request with the above file code from A6 user
+    And I input "huyenlm2@hdbank.com.vn" to end the process
+    Then I search "Tất cả" status
+    And I verify the above request code exist in Quản lý table with status is "Close"

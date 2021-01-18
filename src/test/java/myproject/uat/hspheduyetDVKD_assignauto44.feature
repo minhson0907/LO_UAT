@@ -35,7 +35,12 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
 #      | 00003061 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |Thẻ phụ|
 #      | 00003061 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ online |
 #      | 00003061 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |Hồ sơ nhanh|
-      | 00015209 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+#      | 01338002 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+#      | 00014377 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+#      | 00014378 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+#      | 00014379 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+#      | 00014380 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+      | 00014381 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
 
   @hspheduyetDVKD_assignauto-02
   Scenario: approve with user a2nv
