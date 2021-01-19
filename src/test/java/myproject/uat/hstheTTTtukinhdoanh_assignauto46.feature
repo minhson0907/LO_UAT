@@ -1,7 +1,7 @@
-@regression @assign_TTT_self_assignauto
+@regression @assign_TTT_self_assignauto46
 Feature: Hồ sơ thẻ TTT tự kinh doanh - auto assign
 
-  @assign_TTT_self_assignauto-01
+  @assign_TTT_self_assignauto46-01
   Scenario Outline: register Hồ sơ thẻ TTT tự kinh doanh with cif number
     Given I access link with "a7nv" and "Abc123!@#"
     When I click New button

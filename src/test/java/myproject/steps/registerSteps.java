@@ -460,4 +460,11 @@ public class registerSteps extends TestBase {
                 break;
         }
     }
+
+    @Then("^I input \"([^\"]*)\" to approve$")
+    public void iInputToApprove(String email) throws Throwable {
+        waitElement(By.id("txtEmailCCKhac"));
+        driver.findElement(By.id("txtEmailCCKhac")).sendKeys(email);
+        driver.findElement(By.id("btnYeuCauBoSung")).click();
+    }
 }

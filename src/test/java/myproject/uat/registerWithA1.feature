@@ -65,7 +65,8 @@ Feature: Register with user a1nv
       | cif      | card type                           | client code | fee policy               | limit     |
       | 00013330 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
       | 00013332 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
-#      | 00013333 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
-#      | 00013334 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+      | 00013333 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
+      | 00013334 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
 

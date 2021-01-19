@@ -1,7 +1,7 @@
-@regression @hspheduyetDVKD_assignauto
+@regression @hspheduyetDVKD_assignauto44
 Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
 
-  @hspheduyetDVKD_assignauto-01
+  @hspheduyetDVKD_assignauto44-01
   Scenario Outline: register Hồ sơ thẻ phê duyệt tại Đơn vị kinh doanh with cif number
     Given I access link with "a1nv" and "Abc123!@#"
     When I click New button
@@ -51,14 +51,14 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
 #      | 00013332 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 10000000 | Thẻ phụ            |
 #      | 00013333 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 10000000 | Thẻ phụ            |
 
-  @hspheduyetDVKD_assignauto-02
+  @hspheduyetDVKD_assignauto44-02
   Scenario: approve with user a2nv
     Given I access link with "a2nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A2 user
     Then I select "Nguyễn Văn A3" user to approve
 
-  @hspheduyetDVKD_assignauto-03
+  @hspheduyetDVKD_assignauto44-03
   Scenario: approve with user a3nv
     Given I access link with "a3nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"

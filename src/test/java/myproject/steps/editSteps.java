@@ -146,11 +146,9 @@ public class editSteps extends TestBase {
         Select sanphamthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_SanPhamThe')]")));
         sanphamthe.selectByVisibleText(data.get(0).get(6));
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).clear();
-        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).sendKeys(data.get(0).get(1));
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//tr[contains(@data-id,'" + data.get(0).get(1) + "')]")).click();
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).sendKeys(data.get(0).get(7));
-        Thread.sleep(1000);
+        waitElement(By.xpath("//tr[contains(@data-id,'" + data.get(0).get(7) + "')]"));
+        driver.findElement(By.xpath("//tr[contains(@data-id,'" + data.get(0).get(7) + "')]")).click();
         Select trichnotudongthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_TrichNoTuDongThe')]")));
         trichnotudongthe.selectByVisibleText(data.get(0).get(8));
         if (data.get(0).get(3).equals("Thu phí thường niên")) {
@@ -166,5 +164,43 @@ public class editSteps extends TestBase {
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_SoDTDD')]")).sendKeys(data.get(0).get(10));
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_ThoiGianApDung')]")).clear();
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_ThoiGianApDung')]")).sendKeys(data.get(0).get(11));
+    }
+
+    @And("^I edit information in Thông tin thẩm định as below$")
+    public void iEditInformationInThôngTinThẩmĐịnhAsBelow(DataTable contactInfo) throws Exception {
+        List<List<String>> data = contactInfo.raw();
+        Select thamdinhthucte = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_ThamDinhThucTe')]")));
+        thamdinhthucte.selectByVisibleText(data.get(0).get(0));
+        driver.findElement(By.xpath("//input[contains(@id,'ThamDinh_HanMucTinDungChoThe_DVKD')]")).clear();
+        driver.findElement(By.xpath("//input[contains(@id,'ThamDinh_HanMucTinDungChoThe_DVKD')]")).sendKeys(data.get(0).get(1));
+    }
+
+    @And("^I edit information at Thông tin thẩm định as below$")
+    public void iEditInformationAtThôngTinThẩmĐịnhAsBelow(DataTable contactInfo) throws Exception {
+        List<List<String>> data = contactInfo.raw();
+        Select thamdinhthucte = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_ThamDinhThucTe')]")));
+        thamdinhthucte.selectByVisibleText(data.get(0).get(0));
+        driver.findElement(By.xpath("//input[contains(@id,'ThamDinh_HanMucTinDungChoThe_HoiSo')]")).clear();
+        driver.findElement(By.xpath("//input[contains(@id,'ThamDinh_HanMucTinDungChoThe_HoiSo')]")).sendKeys(data.get(0).get(1));
+        Select dexuathoiso = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_DeXuat_HoiSo')]")));
+        dexuathoiso.selectByVisibleText(data.get(0).get(2));
+        Thread.sleep(1000);
+        Select madexuathoiso = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_MaDeXuat_HoiSo')]")));
+        madexuathoiso.selectByVisibleText(data.get(0).get(3));
+
+    }
+
+    @And("^I edit information in Thông tin phê duyệt as below$")
+    public void iEditInformationInThôngTinPhêDuyệtAsBelow(DataTable contactInfo) {
+        List<List<String>> data = contactInfo.raw();
+        Select cappheduyet = new Select(driver.findElement(By.xpath("//select[contains(@id,'PheDuyet_CapPheDuyet')]")));
+        cappheduyet.selectByVisibleText(data.get(0).get(0));
+        if(data.get(0).get(1).equals("A1")){
+        }
+        else if(data.get(0).get(1).equals("A5")){
+        }
+        else{
+            driver.findElement(By.xpath("//input[contains(@id,'PheDuyet_HanMucChoThe')]")).sendKeys(data.get(0).get(2));
+        }
     }
 }
