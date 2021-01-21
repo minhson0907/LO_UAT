@@ -410,13 +410,6 @@ public class registerSteps extends TestBase {
         driver.findElement(By.id("btnYeuCauBoSung")).click();
     }
 
-    @Then("^I input \"([^\"]*)\" to end the process$")
-    public void iInputToEndTheProcess(String email) throws Throwable {
-        waitElement(By.id("txtToPheDuyet"));
-        driver.findElement(By.id("txtToPheDuyet")).sendKeys(email);
-        driver.findElement(By.id("btnXacNhanPheDuyet")).click();
-    }
-
     @Then("^I search \"([^\"]*)\" status$")
     public void iSearchStatus(String status) throws Throwable {
         waitElement(By.xpath("//select[contains(@id,'TrangThaiDuyet')]"));
@@ -468,6 +461,29 @@ public class registerSteps extends TestBase {
         driver.findElement(By.id("btnYeuCauBoSung")).click();
     }
 
+    @Then("^I input \"([^\"]*)\" to end the process$")
+    public void iInputToEndTheProcess(String email) throws Throwable {
+        waitElement(By.id("txtToPheDuyet"));
+        driver.findElement(By.id("txtToPheDuyet")).sendKeys(email);
+        driver.findElement(By.id("btnXacNhanPheDuyet")).click();
+    }
+
+    @Then("^I input \"([^\"]*)\" to approve from (A1|A2|A3|A4|A5|A6|A7|A8)$")
+    public void iInputToApproveFromA(String email, String user) throws Throwable {
+        switch (user){
+            case"A1":
+                waitElement(By.id("txtDanhSachEmailCC_GuiThongTin"));
+                driver.findElement(By.id("txtDanhSachEmailCC_GuiThongTin")).sendKeys(email);
+                driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
+                break;
+            default:
+                waitElement(By.id("txtEmailCCKhac"));
+                driver.findElement(By.id("txtEmailCCKhac")).sendKeys(email);
+                driver.findElement(By.id("btnYeuCauBoSung")).click();
+                break;
+        }
+    }
+
     @Then("^I select \"([^\"]*)\" user to confirm$")
     public void iSelectUserToConfirm(String user) throws Throwable {
         waitElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']"));
@@ -476,4 +492,6 @@ public class registerSteps extends TestBase {
         waitElement(By.id("btnXacNhanGuiThongTin"));
         driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
     }
+
+
 }

@@ -31,10 +31,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     Then I choose "Nguyễn Văn A2" user to approve
     Examples:
       | cif      | card type              | client code | fee policy               | limit     | record type |
-#      | 00014386 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014385 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014384 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-      | 00014382 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+      | 00003308 | 001-Local Credit Gold  | RGL         | Miễn 50% phí thường niên | 50000000  | Hồ sơ nhanh         |
 
   @hspheduyetDVKD_full_returnA6_editA8-02
   Scenario: approve with user a2nv
@@ -107,14 +104,10 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | 0983234167 | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
-    And I edit information in Thông tin thẩm định as below
-    |Nhà thường trú|100000000|
-    And I edit information in Thông tin phê duyệt as below
-    |Phê duyệt qua HDTĐ|60000000|
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | 0983234167 | 001-Local Credit Gold | RGL | Không trích nợ tự động | 24 |
     Then I save all information
-    And I send request with the above file code from A6 user
-    Then I select "Nguyễn Văn A6" user to approve
+    And I send additional request with the above file code from A8 user
+    Then I input "huyenlm2@hdbank.com.vn" to approve
 
   @hspheduyetDVKD_full_returnA6_editA8-10
   Scenario: approve with user a6nv

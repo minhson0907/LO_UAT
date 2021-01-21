@@ -154,6 +154,7 @@ public class editSteps extends TestBase {
         if (data.get(0).get(3).equals("Thu phí thường niên")) {
             System.out.println("Nothing");
         } else {
+            driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_ThoiGianApDung')]")).clear();
             driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_ThoiGianApDung')]")).sendKeys(data.get(0).get(9));
         }
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_HoTen')]")).clear();
@@ -198,6 +199,8 @@ public class editSteps extends TestBase {
         if(data.get(0).get(1).equals("A1")){
         }
         else if(data.get(0).get(1).equals("A5")){
+        }
+        else if(data.get(0).get(1).equals("A3")){
         }
         else{
             driver.findElement(By.xpath("//input[contains(@id,'PheDuyet_HanMucChoThe')]")).sendKeys(data.get(0).get(2));

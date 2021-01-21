@@ -31,10 +31,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     Then I choose "Nguyễn Văn A2" user to approve
     Examples:
       | cif      | card type              | client code | fee policy               | limit     | record type |
-      | 00007487 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
-#      | 00014385 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014384 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014382 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+      | 00007487 | 001-Local Credit Gold  | RGL         | Miễn 50% phí thường niên | 50000000  | Hồ sơ nhanh        |
 
   @hspheduyetDVKD_full_returnA6_editA5-02
   Scenario: approve with user a2nv

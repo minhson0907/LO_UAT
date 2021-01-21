@@ -33,7 +33,6 @@ Feature: Register with user a1nv
       | 00015405 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
 #      | 00015405 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
 #      | 00015405 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
-#      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
   @registerWithA1-02
   Scenario Outline: register Hồ sơ phê duyệt tại ĐVKD with cif number
@@ -66,7 +65,5 @@ Feature: Register with user a1nv
       | 00013330 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
 #      | 00013332 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
 #      | 00013333 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
-#      | 00013334 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
-#      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
 

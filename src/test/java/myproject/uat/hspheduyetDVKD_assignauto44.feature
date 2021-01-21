@@ -31,11 +31,6 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
     Then I choose "Nguyễn Văn A2" user to approve
     Examples:
       | cif      | card type              | client code | fee policy               | limit     | record type        |
-#      | 00014386 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014385 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014384 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-      | 00014383 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-
 #      | 00013330 | 001-MC Credit Classic | RGL         | Miễn 50% phí thường niên | 30000000 | Hồ sơ thông thường |
 #      | 00013331 | 001-MC Credit Classic | RGL         | Miễn 50% phí thường niên | 30000000 | Hồ sơ thông thường |
 #      | 00013332 | 001-MC Credit Classic | RGL         | Miễn 50% phí thường niên | 30000000 | Hồ sơ thông thường |

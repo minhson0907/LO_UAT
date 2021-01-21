@@ -33,8 +33,6 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ - Assign auto
       | cif      | card type              | client code | fee policy           | limit    | record type |
 #      | 00014385 | 001-MC Credit Classic | RGL         | Thu phí thường niên | 30000000 | Hồ sơ thông thường |
 #      | 00009934 | 001-Local Credit Chain | ABT         | Miễn phí thường niên | 30000000 | Thẻ phụ     |
-#      | 00013334 | 001-MC Credit Platinum | RGL         | Thu phí thường niên | 500000000 | VIP         |
-      | 00014371 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên | 500000000 | VIP         |
 
   @hsthepheduyetTTT_assignauto45-02
   Scenario: approve with user a2nv

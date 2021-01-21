@@ -31,10 +31,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     Then I choose "Nguyễn Văn A2" user to approve
     Examples:
       | cif      | card type              | client code | fee policy               | limit     | record type |
-      | 00014386 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
-#      | 00014385 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014384 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP                |
-#      | 00014382 | 001-MC Credit Platinum | RGL         | Miễn 50% phí thường niên | 500000000 | VIP         |
+      | 00014386 |001-Local Credit Gold  | RGL         | Miễn 50% phí thường niên | 50000000  | Hồ sơ nhanh      |
 
   @hspheduyetDVKD_full_returnA6_editA3-02
   Scenario: approve with user a2nv
@@ -115,7 +112,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
       | Phê duyệt qua HDTĐ | A1 | 600000000 |
     Then I save all information
     And I send additional request with the above file code from A3 user
-    Then I input "huyenlm2@hdbank.com.vn" to approve
+    Then I input "huyenlm2@hdbank.com.vn" to approve from A3
 
   @hspheduyetDVKD_full_returnA6_editA3-10
   Scenario: approve with user a6nv

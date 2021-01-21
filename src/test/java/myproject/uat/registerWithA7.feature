@@ -29,5 +29,3 @@ Feature: Register with user a7nv
       | 00013330 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     |
 #      | 00013332 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên |
 #      | 00013333 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên |
-#      | 00013334 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      |
-#      | 00014386 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      |

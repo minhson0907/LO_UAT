@@ -35,7 +35,6 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
 #      | 00004168 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
 #      | 00004168 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
 #      | 00004168 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000 |
-#      | 00004168 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
   @hspheduyetDVKD_full_returnA5_kiemsoat-02
   Scenario: approve with user a2nv
