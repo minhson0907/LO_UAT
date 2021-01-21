@@ -20,7 +20,7 @@ Feature: Register with user a1nv
       | Ecom | HD000004 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
       | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | 0983234167 | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
-    And I fill all data in Thông tin thẩm định as below
+    And I fill all data at Thông tin thẩm định as below
       | Công ty | TN01 - TN từ lương | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
       | Phê duyệt cá nhân |
@@ -29,11 +29,11 @@ Feature: Register with user a1nv
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
       | cif      | card type                           | client code | fee policy               | limit     |
-      | 00015405 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
+#      | 00015405 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
       | 00015405 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | 30000000  |
-      | 00015405 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
-      | 00015405 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
-      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+#      | 00015405 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
+#      | 00015405 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
+#      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
   @registerWithA1-02
   Scenario Outline: register Hồ sơ phê duyệt tại ĐVKD with cif number
@@ -64,9 +64,9 @@ Feature: Register with user a1nv
     Examples:
       | cif      | card type                           | client code | fee policy               | limit     |
       | 00013330 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
-      | 00013332 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
-      | 00013333 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
-      | 00013334 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
-      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+#      | 00013332 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
+#      | 00013333 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
+#      | 00013334 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
+#      | 00015405 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | 500000000 |
 
 

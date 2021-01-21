@@ -467,4 +467,13 @@ public class registerSteps extends TestBase {
         driver.findElement(By.id("txtEmailCCKhac")).sendKeys(email);
         driver.findElement(By.id("btnYeuCauBoSung")).click();
     }
+
+    @Then("^I select \"([^\"]*)\" user to confirm$")
+    public void iSelectUserToConfirm(String user) throws Throwable {
+        waitElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']"));
+        driver.findElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']")).click();
+        driver.findElement(By.id("btnChonNguoiDuyet")).click();
+        waitElement(By.id("btnXacNhanGuiThongTin"));
+        driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
+    }
 }

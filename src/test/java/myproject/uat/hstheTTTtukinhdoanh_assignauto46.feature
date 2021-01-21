@@ -24,12 +24,12 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - auto assign
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A7 user
-    Then I select "Phân công tự động" user to approve
+    Then I select "Phân công tự động" user to confirm
     Examples:
       | cif      | card type                           | client code | fee policy               | record type        |
-      | 00003061 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | VIP                |
-#      | 00003061 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | Thẻ phụ            |
-#      | 00003061 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | Hồ sơ online       |
+#      | 00003061 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | VIP                |
+      | 01357969 | 001-Local Credit Chain              | ABT         | Miễn phí thường niên     | Thẻ phụ            |
+#      | 0000 3061 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | Hồ sơ online       |
 #      | 00003061 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
 #      | 00003052 | 001-MC Credit Platinum              | RGL         | Thu phí thường niên      | Hồ sơ thông thường |
 
