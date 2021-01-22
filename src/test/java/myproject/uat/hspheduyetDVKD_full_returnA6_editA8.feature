@@ -9,9 +9,9 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I fill all data in Thông Tin Hồ sơ as below
       | Hồ sơ phê duyệt tại ĐVKD | 002 ~ CN PHU NHUAN | <record type> | TN01 - TN từ lương |
     And I fill all data in Thông tin chủ thẻ chính with cif as below
-      | Customer CIF | <cif> | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tỉnh Tuyên Quang | 2 | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
+      | Customer CIF | <cif> | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tuyên Quang | 2 | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
     And I fill all data in Thông tin nghề nghiệp as below
-      | Nhân viên | Chính thức | BUSINESS NAME | DN tiền gửi Chi lương tại HDBank | Cổ phần | 0285556664 | 123 | Tỉnh Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu |
+      | Nhân viên | Chính thức | BUSINESS NAME | DN tiền gửi Chi lương tại HDBank | Cổ phần | 0285556664 | 123 | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu |
     And I fill all data in Thông tin tài chính as below
       | Qua TK tại HDBank | Nhóm 2 | Nhóm 3 | Nhóm 4 | Nhóm 5 | 20000000 | 20000000 |
     And I fill all data in Thông tin tham chiếu as below
@@ -21,17 +21,17 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I fill all data in Thông tin thẻ tín dụng
       | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | 0983234167 | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
     And I fill all data at Thông tin thẩm định as below
-      | Công ty | TN01 - TN từ lương | Đồng ý | A01 - Quy định | <limit> |
+      | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
-      | Phê duyệt cá nhân |
+      | Phê duyệt cá nhân |Đồng ý|
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
     Then I choose "Nguyễn Văn A2" user to approve
     Examples:
-      | cif      | card type              | client code | fee policy               | limit     | record type |
-      | 00003308 | 001-Local Credit Gold  | RGL         | Miễn 50% phí thường niên | 50000000  | Hồ sơ nhanh         |
+      | cif      | card type             | client code | fee policy               | limit    | record type |
+      | 00003308 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh |
 
   @hspheduyetDVKD_full_returnA6_editA8-02
   Scenario: approve with user a2nv
@@ -82,11 +82,11 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I return with the above file code from A6 user
     Then I select "<user>" user to return
     Examples:
-      | user               |
+      | user            |
 #      | Người tạo yêu cầu  |
 #      | Kiểm soát |
 #      | Phê duyệt tại ĐVKD |
-      | Tiếp nhận hồ sơ    |
+      | Tiếp nhận hồ sơ |
 
   @hspheduyetDVKD_full_returnA6_editA8-09
   Scenario: approve with user a8nv
@@ -94,9 +94,9 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I edit information before sending request with the above file code from A8 user
     And I edit information in Thông tin chủ thẻ chính as below
-      | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tỉnh Lai Châu | 2 | Tỉnh Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | Tỉnh Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | qcteam@hdbank.com.vn | 0976558597 |
+      | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Lai Châu | 2 | Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | qcteam@hdbank.com.vn | 0976558597 |
     And I edit information in Thông tin nghề nghiệp as below
-      | Quản lý | Chính thức | BUSINESS NAME | DN thuộc TOP 500 | Cổ phần | 0285556664 | 123 | Tỉnh Lai Châu | Huyện Mường Tè | Xã Bum Nưa |
+      | Quản lý | Chính thức | BUSINESS NAME | DN thuộc TOP 500 | Cổ phần | 0285556664 | 123 | Lai Châu | Huyện Mường Tè | Xã Bum Nưa |
     And I edit information in Thông tin tài chính as below
       | Qua TK tại HDBank | Nhóm 5 | Nhóm 4 | Nhóm 3 | Nhóm 2 | 30000000 | 10000000 |
     And I edit information in Thông tin tham chiếu as below

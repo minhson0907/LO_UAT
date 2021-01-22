@@ -186,7 +186,7 @@ public class registerSteps extends TestBase {
         List<List<String>> data = contactInfo.raw();
         Select thamdinhthucte = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_ThamDinhThucTe')]")));
         thamdinhthucte.selectByVisibleText(data.get(0).get(0));
-        Select manhomkhcaptindung = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_MaNhomKHCapTinDung')]")));
+        Select manhomkhcaptindung = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_LyDoTaiDanhGia')]")));
         manhomkhcaptindung.selectByVisibleText(data.get(0).get(1));
         Select dexuathoiso = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_DeXuat_HoiSo')]")));
         dexuathoiso.selectByVisibleText(data.get(0).get(2));
@@ -200,6 +200,15 @@ public class registerSteps extends TestBase {
         List<List<String>> data = contactInfo.raw();
         Select cappheduyet = new Select(driver.findElement(By.xpath("//select[contains(@id,'PheDuyet_CapPheDuyet')]")));
         cappheduyet.selectByVisibleText(data.get(0).get(0));
+        if (data.get(0).get(1).equals("Đồng ý")) {
+            driver.findElement(By.xpath("//input[contains(@id,'rbPheDuyet_DongY')]")).click();
+        } else if (data.get(0).get(1).equals("Đồng ý với điều kiện")) {
+            driver.findElement(By.xpath("//input[contains(@id,'rbPheDuyet_DongYVoiDK')]")).click();
+            driver.findElement(By.xpath("//input[contains(@id,'tbPheDuyet_DieuKienPheDuyet')]")).clear();
+            driver.findElement(By.xpath("//input[contains(@id,'tbPheDuyet_DieuKienPheDuyet')]")).sendKeys("QC TEST");
+        } else {
+            driver.findElement(By.xpath("//input[contains(@id,'rbPheDuyet_TuChoi')]")).click();
+        }
 //        driver.findElement(By.xpath("//input[contains(@id,'PheDuyet_HanMucChoThe')]")).sendKeys(data.get(0).get(1));
     }
 
@@ -275,7 +284,7 @@ public class registerSteps extends TestBase {
         List<List<String>> data = contactInfo.raw();
         Select thamdinhthucte = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_ThamDinhThucTe')]")));
         thamdinhthucte.selectByVisibleText(data.get(0).get(0));
-        Select manhomkhcaptindung = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_MaNhomKHCapTinDung')]")));
+        Select manhomkhcaptindung = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_LyDoTaiDanhGia')]")));
         manhomkhcaptindung.selectByVisibleText(data.get(0).get(1));
         Select dexuathoiso = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_DeXuat_DVKD')]")));
         dexuathoiso.selectByVisibleText(data.get(0).get(2));
@@ -470,8 +479,9 @@ public class registerSteps extends TestBase {
 
     @Then("^I input \"([^\"]*)\" to approve from (A1|A2|A3|A4|A5|A6|A7|A8)$")
     public void iInputToApproveFromA(String email, String user) throws Throwable {
-        switch (user){
-            case"A1":
+        switch (user) {
+            case "A7":
+            case "A1":
                 waitElement(By.id("txtDanhSachEmailCC_GuiThongTin"));
                 driver.findElement(By.id("txtDanhSachEmailCC_GuiThongTin")).sendKeys(email);
                 driver.findElement(By.id("btnXacNhanGuiThongTin")).click();

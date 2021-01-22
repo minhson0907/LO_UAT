@@ -1,5 +1,6 @@
 package myproject.steps;
 
+import com.tigervnc.rdr.Exception;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import myproject.base.TestBase;
@@ -13,7 +14,7 @@ import static org.testng.Assert.assertTrue;
 public class editSteps extends TestBase {
 
     @And("^I edit information in Thông tin chủ thẻ chính as below$")
-    public void iEditInformationInThôngTinChủThẻChínhAsBelow(DataTable contactInfo) throws Exception{
+    public void iEditInformationInThôngTinChủThẻChínhAsBelow(DataTable contactInfo) throws Throwable {
         List<List<String>> data = contactInfo.raw();
         driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'HeThongDungChung')]")));
         Select trinhdohocvan = new Select(driver.findElement(By.xpath("//select[contains(@id,'ChuTheChinh_TrinhDoHocVan')]")));
@@ -59,7 +60,7 @@ public class editSteps extends TestBase {
     }
 
     @And("^I edit information in Thông tin nghề nghiệp as below$")
-    public void iEditInformationInThôngTinNghềNghiệpAsBelow(DataTable contactInfo)  throws Exception{
+    public void iEditInformationInThôngTinNghềNghiệpAsBelow(DataTable contactInfo) throws Throwable {
         List<List<String>> data = contactInfo.raw();
         Select nghenghiepchucvu = new Select(driver.findElement(By.xpath("//select[contains(@id,'NgheNghiep_ChucVu')]")));
         nghenghiepchucvu.selectByVisibleText(data.get(0).get(0));
@@ -86,7 +87,7 @@ public class editSteps extends TestBase {
     }
 
     @And("^I edit information in Thông tin tài chính as below$")
-    public void iEditInformationInThôngTinTàiChínhAsBelow(DataTable contactInfo)  throws Exception {
+    public void iEditInformationInThôngTinTàiChínhAsBelow(DataTable contactInfo) throws Exception {
         List<List<String>> data = contactInfo.raw();
         Select hinhthucnhanluong = new Select(driver.findElement(By.xpath("//select[contains(@id,'TaiChinh_HinhThucNhanLuong')]")));
         hinhthucnhanluong.selectByVisibleText(data.get(0).get(0));
@@ -131,7 +132,7 @@ public class editSteps extends TestBase {
     }
 
     @And("^I edit information in Thông tin thẻ tín dụng$")
-    public void iEditInformationInThôngTinThẻTínDụng(DataTable contactInfo) throws Exception {
+    public void iEditInformationInThôngTinThẻTínDụng(DataTable contactInfo) throws Throwable {
         List<List<String>> data = contactInfo.raw();
         Select diachinhanthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_DiaChiNhanThe')]")));
         diachinhanthe.selectByVisibleText(data.get(0).get(0));
@@ -177,7 +178,7 @@ public class editSteps extends TestBase {
     }
 
     @And("^I edit information at Thông tin thẩm định as below$")
-    public void iEditInformationAtThôngTinThẩmĐịnhAsBelow(DataTable contactInfo) throws Exception {
+    public void iEditInformationAtThôngTinThẩmĐịnhAsBelow(DataTable contactInfo) throws Throwable {
         List<List<String>> data = contactInfo.raw();
         Select thamdinhthucte = new Select(driver.findElement(By.xpath("//select[contains(@id,'ThamDinh_ThamDinhThucTe')]")));
         thamdinhthucte.selectByVisibleText(data.get(0).get(0));
@@ -192,18 +193,36 @@ public class editSteps extends TestBase {
     }
 
     @And("^I edit information in Thông tin phê duyệt as below$")
-    public void iEditInformationInThôngTinPhêDuyệtAsBelow(DataTable contactInfo) {
+    public void iEditInformationInThôngTinPhêDuyệtAsBelow(DataTable contactInfo) throws Throwable {
         List<List<String>> data = contactInfo.raw();
         Select cappheduyet = new Select(driver.findElement(By.xpath("//select[contains(@id,'PheDuyet_CapPheDuyet')]")));
         cappheduyet.selectByVisibleText(data.get(0).get(0));
-        if(data.get(0).get(1).equals("A1")){
-        }
-        else if(data.get(0).get(1).equals("A5")){
-        }
-        else if(data.get(0).get(1).equals("A3")){
-        }
-        else{
+        if (data.get(0).get(1).equals("A1") | data.get(0).get(1).equals("A5") | data.get(0).get(1).equals("A3")) {
+        } else {
+            driver.findElement(By.xpath("//input[contains(@id,'PheDuyet_HanMucChoThe')]")).clear();
             driver.findElement(By.xpath("//input[contains(@id,'PheDuyet_HanMucChoThe')]")).sendKeys(data.get(0).get(2));
         }
+        if (data.get(0).get(3).equals("Đồng ý")) {
+            clickToElementByJS("//input[contains(@id,'rbPheDuyet_DongY')]");
+//            driver.findElement(By.xpath("//input[contains(@id,'rbPheDuyet_DongY')]")).click();
+        } else if (data.get(0).get(3).equals("Đồng ý với điều kiện")) {
+            clickToElementByJS("//input[contains(@id,'rbPheDuyet_DongYVoiDK')]");
+//            driver.findElement(By.xpath("//input[contains(@id,'rbPheDuyet_DongYVoiDK')]")).click();
+            driver.findElement(By.xpath("//input[contains(@id,'tbPheDuyet_DieuKienPheDuyet')]")).clear();
+            driver.findElement(By.xpath("//input[contains(@id,'tbPheDuyet_DieuKienPheDuyet')]")).sendKeys("QC TEST");
+        } else {
+            clickToElementByJS("//input[contains(@id,'rbPheDuyet_TuChoi')]");
+//            driver.findElement(By.xpath("//input[contains(@id,'rbPheDuyet_TuChoi')]")).click();
+        }
+    }
+
+    @And("^I edit information in Thông tin hồ sơ as below$")
+    public void iEditInformationInThôngTinHồSơAsBelow(DataTable contactInfo) {
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'HeThongDungChung')]")));
+        List<List<String>> data = contactInfo.raw();
+        Select donvikinhdoanh = new Select(driver.findElement(By.xpath("//select[contains(@id,'HoSo_DVKD')]")));
+        donvikinhdoanh.selectByVisibleText(data.get(0).get(1));
+        Select loaihoso = new Select(driver.findElement(By.xpath("//select[contains(@id,'HoSo_LoaiHoSo')]")));
+        loaihoso.selectByVisibleText(data.get(0).get(0));
     }
 }
