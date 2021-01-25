@@ -19,7 +19,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | 0983234167 | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | CN PHU NHUAN | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
@@ -104,7 +104,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | 0983234167 | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | CN LANH BINH THANG | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
     And I edit information in Thông tin thẩm định as below
       | Nhà thường trú | 100000000 |
     And I edit information in Thông tin phê duyệt as below

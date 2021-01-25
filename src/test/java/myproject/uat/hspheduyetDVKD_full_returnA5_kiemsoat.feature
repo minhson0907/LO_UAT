@@ -19,7 +19,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | 0983234167 | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | CN PHU NHUAN | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below

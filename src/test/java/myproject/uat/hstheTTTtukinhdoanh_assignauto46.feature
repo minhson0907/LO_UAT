@@ -19,7 +19,7 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - auto assign
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | 0983234167 | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | CN PHU NHUAN | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"

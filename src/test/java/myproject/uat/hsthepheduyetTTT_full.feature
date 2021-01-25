@@ -19,7 +19,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | RGL | Email | Thu phí thường niên | Địa chỉ thường trú | 0983234167 | 001-MC Credit Classic | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 |12|
+      | CN/PGD HDBank | RGL | Email | Thu phí thường niên | Địa chỉ thường trú | CN PHU NHUAN | 001-MC Credit Classic | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 |12|
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | 30000000 |
     And I fill all data in Thông tin phê duyệt as below

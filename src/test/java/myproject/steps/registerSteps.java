@@ -162,8 +162,10 @@ public class registerSteps extends TestBase {
         chinhsach.selectByVisibleText(data.get(0).get(3));
         Select diachinhansaoke = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_DiaChiNhanSaoKe')]")));
         diachinhansaoke.selectByVisibleText(data.get(0).get(4));
-        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DichVuSMS')]")).clear();
-        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DichVuSMS')]")).sendKeys(data.get(0).get(5));
+//        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DichVuSMS')]")).clear();
+//        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DichVuSMS')]")).sendKeys(data.get(0).get(5));
+        Select nhanthetaidvkd = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_NhanTheTaiDVKD')]")));
+        nhanthetaidvkd.selectByVisibleText(data.get(0).get(5));
         Select sanphamthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_SanPhamThe')]")));
         sanphamthe.selectByVisibleText(data.get(0).get(6));
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).sendKeys(data.get(0).get(1));
