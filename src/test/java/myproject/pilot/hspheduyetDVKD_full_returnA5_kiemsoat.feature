@@ -73,7 +73,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD000004 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | 0983234167 | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | 0983234167 | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |TN04 - TN từ lương |
     Then I save all information
     And I send request with the above file code from A8 user
     Then I select "Nguyễn Văn A4" user to approve

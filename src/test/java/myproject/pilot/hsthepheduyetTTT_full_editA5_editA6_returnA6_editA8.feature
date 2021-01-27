@@ -9,7 +9,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I fill all data in Thông Tin Hồ sơ as below
       | Hồ sơ thẻ phê duyệt tại Trung Tâm Thẻ | 168~Chi nhánh Nguyễn Đình Chiểu | Hồ sơ thông thường | TN01 - TN từ lương |
     And I fill all data in Thông tin chủ thẻ chính with cif as below
-      | Customer CIF | 00014377 | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tuyên Quang | 2 | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
+      | Customer CIF | 01459716 | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tuyên Quang | 2 | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
     And I fill all data in Thông tin nghề nghiệp as below
       | Nhân viên | Chính thức | BUSINESS NAME | DN tiền gửi Chi lương tại HDBank | Cổ phần | 0285556664 | 123 | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu |
     And I fill all data in Thông tin tài chính as below
@@ -19,7 +19,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | RGL | Email | Thu phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-MC Credit Classic | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | RGL | Email | Thu phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-VISA Credit Classic Loan | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | 30000000 |
     And I fill all data in Thông tin phê duyệt as below
@@ -28,7 +28,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
-    Then I select "Nguyễn Văn A2" user to approve
+    Then I choose "Nguyễn Văn A2" from A1 user to approve
 
   @hsthepheduyetTTT_full_editA5_editA6_returnA6_editA8-02
   Scenario: approve with user a2nv
@@ -74,7 +74,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |TN04 - TN từ lương |
     And I edit information at Thông tin thẩm định as below
       | Nhà tạm trú | 10000000 | Đồng ý | A03 - Ngoại lệ đối tượng |
     And I edit information in Thông tin phê duyệt as below
@@ -99,7 +99,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Local Credit Gold | RGL | Không trích nợ tự động | 12 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Local VCCS Credit Silver  | RGL | Không trích nợ tự động | 12 |TN04 - TN từ chủ DN |
     And I edit information at Thông tin thẩm định as below
       | Nhà thường trú | 50000000 | Đồng ý | A03 - Ngoại lệ đối tượng |
     And I edit information in Thông tin phê duyệt as below
@@ -119,10 +119,18 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     Given I access link with "a8nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I edit information before sending request with the above file code from A7 user
-    And I edit information in Thông tin hồ sơ as below
-      | VIP | 168 ~ CN NGUYEN DINH CHIEU |
+    And I edit information in Thông tin chủ thẻ chính as below
+      | THPT | Ly hôn | Thuê | 21 | 8 | 654321 | Tiền Giang | 0 | Tiền Giang | Huyện Cái Bè | Thị trấn Cái Bè | 17 Trương Công Định | Tiền Giang | Huyện Cái Bè | Thị trấn Cái Bè | 17 Trương Công Định | qcteam@hdbank.com.vn | 0976558597 |
+    And I edit information in Thông tin nghề nghiệp as below
+      | Quản lý | Chính thức | BUSINESS NAME | DN thuộc TOP 500 | Cổ phần | 0285556664 | 123 | Tiền Giang | Huyện Cái Bè | Thị trấn Cái Bè |
+    And I edit information in Thông tin tài chính as below
+      | Tiền mặt | Nhóm 5 | Nhóm 4 | Nhóm 3 | Nhóm 1 | 15000000 | 10000000 |
+    And I edit information in Thông tin tham chiếu as below
+      | Con | QC EDIT | 0909666777 |
+    And I edit information in Đơn vị tiếp nhận hồ sơ as below
+      | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-VISA Credit Gold Regular | RGL | Không trích nợ tự động | 15 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng |  001-Local VCCS Credit Gold  | RGL | Không trích nợ tự động | 15 |TN04 - TN từ lương |
     Then I save all information
     And I send additional request with the above file code from A6 user
     Then I input "huyenlm2@hdbank.com.vn" to approve from A6
