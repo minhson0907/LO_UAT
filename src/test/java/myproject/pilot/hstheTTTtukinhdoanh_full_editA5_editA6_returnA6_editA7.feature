@@ -19,7 +19,7 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - full luồng
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | CN/PGD HDBank | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |TN01 - TN từ lương|
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
@@ -27,7 +27,7 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - full luồng
     Then I choose "Nguyễn Văn A4" from A7 user to approve
     Examples:
       | cif      | card type             | client code | fee policy               | record type |
-      | 00014385 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh |
+      | 00014385 | 001-VISA Credit Gold Loan    | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh |
 
   @hstheTTTtukinhdoanh_full_editA5_editA6_returnA6_editA7-02
   Scenario: approve with user a4nv
@@ -66,7 +66,7 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn phí thường niên | Địa chỉ thường trú |Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn phí thường niên | Địa chỉ thường trú |Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |TN04 - TN từ chủ DN|
     And I edit information at Thông tin thẩm định as below
       | Nhà tạm trú | 10000000 | Đồng ý | A03 - Ngoại lệ đối tượng |
     And I edit information in Thông tin phê duyệt as below
@@ -91,7 +91,7 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng| 001-Local Credit Gold | RGL | Không trích nợ tự động | 12 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng| 001-VISA Credit Classic CFYC  | RGL | Không trích nợ tự động | 12 |TN04 - TN từ chủ DN|
     And I edit information at Thông tin thẩm định as below
       | Nhà thường trú | 50000000 | Đồng ý | A03 - Ngoại lệ đối tượng |
     And I edit information in Thông tin phê duyệt as below
@@ -122,7 +122,7 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Local Credit Gold | RGL | Không trích nợ tự động | 24 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-VISA Credit Classic CFYC  | RGL | Không trích nợ tự động | 24 |TN04 - TN từ lương|
     Then I save all information
     And I send additional request with the above file code from A7 user
     Then I input "huyenlm2@hdbank.com.vn" to approve from A7

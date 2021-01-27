@@ -19,19 +19,19 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | CN PHU NHUAN | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 | TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
-      | Phê duyệt cá nhân |Đồng ý|
+      | Phê duyệt cá nhân | Đồng ý |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
-    Then I choose "Nguyễn Văn A2" user to approve
+    Then I choose "Nguyễn Văn A2" from A1 user to approve
     Examples:
-      | cif      | card type             | client code | fee policy               | limit    | record type |
-      | 00013330 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh |
+      | cif      | card type                   | client code | fee policy               | limit    | record type |
+      | 00013330 | 001-Local VCCS Credit Chain | ABT         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh |
 
   @hspheduyetDVKD_full_returnA6_editA1-02
   Scenario: approve with user a2nv
@@ -94,9 +94,9 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     When I search with the above request code from "QLYeuCau"
     And I edit information before sending request with the above file code from A1 user
     And I edit information in Thông tin chủ thẻ chính as below
-      | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 |  Lai Châu | 2 |  Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 |  Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | qcteam@hdbank.com.vn | 0976558597 |
+      | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Lai Châu | 2 | Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | Lai Châu | Huyện Mường Tè | Xã Bum Nưa | Block C Khu công nghệ cao Q9 | qcteam@hdbank.com.vn | 0976558597 |
     And I edit information in Thông tin nghề nghiệp as below
-      | Quản lý | Chính thức | BUSINESS NAME | DN thuộc TOP 500 | Cổ phần | 0285556664 | 123 |  Lai Châu | Huyện Mường Tè | Xã Bum Nưa |
+      | Quản lý | Chính thức | BUSINESS NAME | DN thuộc TOP 500 | Cổ phần | 0285556664 | 123 | Lai Châu | Huyện Mường Tè | Xã Bum Nưa |
     And I edit information in Thông tin tài chính as below
       | Qua TK tại HDBank | Nhóm 5 | Nhóm 4 | Nhóm 3 | Nhóm 2 | 30000000 | 10000000 |
     And I edit information in Thông tin tham chiếu as below
@@ -104,11 +104,11 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - full luồng
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 | TN04 - TN từ lương |
     And I edit information in Thông tin thẩm định as below
       | Nhà thường trú | 100000000 |
     And I edit information in Thông tin phê duyệt as below
-      | Phê duyệt qua HDTĐ | A1 | 50000000 |Đồng ý với điều kiện |
+      | Phê duyệt qua HDTĐ | A1 | 50000000 | Đồng ý với điều kiện |
     Then I save all information
     And I send additional request with the above file code from A1 user
     Then I input "huyenlm2@hdbank.com.vn" to approve from A1

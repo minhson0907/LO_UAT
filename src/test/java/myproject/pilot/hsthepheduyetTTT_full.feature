@@ -19,7 +19,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | RGL | Email | Thu phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-MC Credit Classic | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 |12|
+      | CN/PGD HDBank | RGL | Email | Thu phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-MC Credit Classic | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 |12|TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | 30000000 |
     And I fill all data in Thông tin phê duyệt as below
@@ -28,7 +28,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
-    Then I choose "Nguyễn Văn A2" user to approve
+    Then I select "Nguyễn Văn A2" user to approve
 
   @assign_TTT-02
   Scenario: approve with user a2nv

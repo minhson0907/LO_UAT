@@ -157,16 +157,26 @@ public class registerSteps extends TestBase {
         List<List<String>> data = contactInfo.raw();
         Select diachinhanthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_DiaChiNhanThe')]")));
         diachinhanthe.selectByVisibleText(data.get(0).get(0));
+        if(data.get(0).get(0).equals("CN/PGD HDBank")){
+            Select nhanthetaidvkd = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_NhanTheTaiDVKD')]")));
+            nhanthetaidvkd.selectByVisibleText(data.get(0).get(5));
+        }
+        else{}
         Select hinhthucguisaoke = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_HinhThuGuiSaoKe')]")));
         hinhthucguisaoke.selectByVisibleText(data.get(0).get(2));
+        if(data.get(0).get(2).equals("Bưu điện")){
+            Select diachinhansaoke = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_DiaChiNhanSaoKe')]")));
+            diachinhansaoke.selectByVisibleText(data.get(0).get(4));
+        }
+        else{}
+        Select chinhsachcaptindung = new Select(driver.findElement(By.xpath("//select[contains(@id,'HoSo_ChinhSachCapTinDung')]")));
+        chinhsachcaptindung.selectByVisibleText(data.get(0).get(12));
         Select chinhsach = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_ChinhSach')]")));
         chinhsach.selectByVisibleText(data.get(0).get(3));
-        Select diachinhansaoke = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_DiaChiNhanSaoKe')]")));
-        diachinhansaoke.selectByVisibleText(data.get(0).get(4));
+
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DichVuSMS')]")).clear();
 //        driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DichVuSMS')]")).sendKeys(data.get(0).get(5));
-        Select nhanthetaidvkd = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_NhanTheTaiDVKD')]")));
-        nhanthetaidvkd.selectByVisibleText(data.get(0).get(5));
+
         Select sanphamthe = new Select(driver.findElement(By.xpath("//select[contains(@id,'TheTinDung_SanPhamThe')]")));
         sanphamthe.selectByVisibleText(data.get(0).get(6));
         driver.findElement(By.xpath("//input[contains(@id,'TheTinDung_DoiTuongKH')]")).sendKeys(data.get(0).get(1));
@@ -393,15 +403,18 @@ public class registerSteps extends TestBase {
         driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
     }
 
-    @Then("^I choose \"([^\"]*)\" from A7 user to approve$")
-    public void iChooseFromAUserToApprove(String user) throws Throwable {
-        waitElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']"));
-        driver.findElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']")).click();
-        driver.findElement(By.id("btnChonNguoiDuyet")).click();
-        Thread.sleep(1000);
-        waitElement(By.xpath("//select[@id='drlNguoiDuyet2']/option[@title='" + user + "']"));
-        driver.findElement(By.xpath("//select[@id='drlNguoiDuyet2']/option[@title='" + user + "']")).click();
-        driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
+    @Then("^I choose \"([^\"]*)\" from (A7|A1) user to approve$")
+    public void iChooseFromAUserToApprove(String user,String type) throws Throwable {
+        switch (type){
+            default:
+                waitElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']"));
+                driver.findElement(By.xpath("//select[@id='drlNguoiDuyet1']/option[@title='" + user + "']")).click();
+                driver.findElement(By.id("btnChonNguoiDuyet")).click();
+                Thread.sleep(1000);
+                waitElement(By.xpath("//select[@id='drlNguoiDuyet2']/option[@title='" + user + "']"));
+                driver.findElement(By.xpath("//select[@id='drlNguoiDuyet2']/option[@title='" + user + "']")).click();
+                driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
+        }
     }
 
     @Then("^I select \"([^\"]*)\" user to approve$")

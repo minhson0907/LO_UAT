@@ -28,7 +28,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
-    Then I choose "Nguyễn Văn A2" user to approve
+    Then I select "Nguyễn Văn A2" user to approve
 
   @hsthepheduyetTTT_full_editA5_editA6_returnA6_editA8-02
   Scenario: approve with user a2nv

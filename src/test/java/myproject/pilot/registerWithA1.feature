@@ -19,20 +19,18 @@ Feature: Register with user a1nv
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003679 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 | TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
-      | Phê duyệt cá nhân |Đồng ý|
+      | Phê duyệt cá nhân | Đồng ý |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
-      | cif      | card type              | client code | fee policy           | limit    |
-#      | 00015405 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
-      | 00059551 | 001-Local VCCS Credit Chain | ABT         | Miễn phí thường niên | 30000000 |
-#      | 00015405 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
-#      | 00015405 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000  |
+      | cif      | card type                    | client code | fee policy           | limit    |
+      | 01459716 | 001-VISA Credit Classic Loan | RGL         | Miễn phí thường niên | 30000000 |
+
 
   @registerWithA1-02
   Scenario Outline: register Hồ sơ phê duyệt tại ĐVKD with cif number
@@ -52,18 +50,16 @@ Feature: Register with user a1nv
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003679 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 | TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
-      | Phê duyệt cá nhân |Đồng ý với điều kiện|
+      | Phê duyệt cá nhân | Đồng ý với điều kiện |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
       | cif      | card type                           | client code | fee policy               | limit    |
-#      | 00004168 | 001-MC Credit Classic               | RGL         | Thu phí thường niên      | 30000000  |
-#      | 00013332 | 001-Local Credit Gold               | RGL         | Miễn 50% phí thường niên | 50000000  |
-      | 00059551 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000 |
+      | 01459716 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000 |
 
 
