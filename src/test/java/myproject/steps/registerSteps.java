@@ -41,7 +41,8 @@ public class registerSteps extends TestBase {
 
     @And("^I fill all data in Thông Tin Hồ sơ as below$")
     public void iFillAllDataInThôngTinHồSơAsBelow(DataTable contactInfo) {
-        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='ms-dlgFrameContainer']/iframe")));
+//        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='ms-dlgFrameContainer']/iframe")));
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'HeThongDungChung')]")));
         List<List<String>> data = contactInfo.raw();
         Select loainghiepvu = new Select(driver.findElement(By.xpath("//select[contains(@id,'Chung_Bieumau')]")));
         loainghiepvu.selectByVisibleText(data.get(0).get(0));
@@ -312,8 +313,8 @@ public class registerSteps extends TestBase {
     @And("^I fill all data in Đơn vị tiếp nhận hồ sơ as below$")
     public void iFillAllDataInĐơnVịTiếpNhậnHồSoAsBelow(DataTable contactInfo) {
         List<List<String>> data = contactInfo.raw();
-        Select chuongtrinhtiepthi = new Select(driver.findElement(By.xpath("//select[contains(@id,'DonViTiepNhan_ChuongTrinhTiepThi')]")));
-        chuongtrinhtiepthi.selectByVisibleText(data.get(0).get(0));
+//        Select chuongtrinhtiepthi = new Select(driver.findElement(By.xpath("//select[contains(@id,'DonViTiepNhan_ChuongTrinhTiepThi')]")));
+//        chuongtrinhtiepthi.selectByVisibleText(data.get(0).get(0));
         driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).clear();
         driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).sendKeys(data.get(0).get(1));
         clickToElementByJS("//button[@id='btnMaNvHDBAnk']");

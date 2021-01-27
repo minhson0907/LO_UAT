@@ -121,8 +121,8 @@ public class editSteps extends TestBase {
     @And("^I edit information in Đơn vị tiếp nhận hồ sơ as below$")
     public void iEditInformationInĐơnVịTiếpNhậnHồSơAsBelow(DataTable contactInfo) throws Exception {
         List<List<String>> data = contactInfo.raw();
-        Select chuongtrinhtiepthi = new Select(driver.findElement(By.xpath("//select[contains(@id,'DonViTiepNhan_ChuongTrinhTiepThi')]")));
-        chuongtrinhtiepthi.selectByVisibleText(data.get(0).get(0));
+//        Select chuongtrinhtiepthi = new Select(driver.findElement(By.xpath("//select[contains(@id,'DonViTiepNhan_ChuongTrinhTiepThi')]")));
+//        chuongtrinhtiepthi.selectByVisibleText(data.get(0).get(0));
         driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).clear();
         driver.findElement(By.xpath("//input[contains(@id,'DonViTiepNhan_MaNVHDBANK')]")).sendKeys(data.get(0).get(1));
         clickToElementByJS("//button[@id='btnMaNvHDBAnk']");
