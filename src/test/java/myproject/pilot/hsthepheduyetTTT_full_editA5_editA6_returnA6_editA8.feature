@@ -74,7 +74,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |TN04 - TN từ lương |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | 001-Visa Credit Vietjet SOVICO VIP | RGL | Không trích nợ tự động | 24 |TN01 - TN từ lương |
     And I edit information at Thông tin thẩm định as below
       | Nhà tạm trú | 10000000 | Đồng ý | A03 - Ngoại lệ đối tượng |
     And I edit information in Thông tin phê duyệt as below
@@ -130,7 +130,7 @@ Feature: Hồ sơ thẻ phê duyệt tại Trung tâm thẻ
     And I edit information in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I edit information in Thông tin thẻ tín dụng
-      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng |  001-Local VCCS Credit Gold  | RGL | Không trích nợ tự động | 15 |TN04 - TN từ lương |
+      | Địa chỉ công ty | SALE_ONLINE | Bưu điện | Miễn 50% phí thường niên | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng |  001-Local VCCS Credit Gold  | RGL | Không trích nợ tự động | 15 |TN01 - TN từ lương |
     Then I save all information
     And I send additional request with the above file code from A6 user
     Then I input "huyenlm2@hdbank.com.vn" to approve from A6

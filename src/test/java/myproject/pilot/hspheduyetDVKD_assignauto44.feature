@@ -19,7 +19,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |TN04 - TN từ chủ DN |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 | TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
       | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
     And I fill all data in Thông tin phê duyệt as below
@@ -28,23 +28,10 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A1 user
-    Then I select "Nguyễn Văn A2" user to approve
+    Then I choose "Nguyễn Văn A2" from A1 user to approve
     Examples:
-      | cif      | card type             | client code | fee policy               | limit    | record type        |
-      | 00003308 | 001-MC Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ thông thường |
-#      | 00013331 | 001-MC Credit Classic | RGL         | Miễn 50% phí thường niên | 30000000 | Hồ sơ thông thường |
-#      | 00013332 | 001-MC Credit Classic | RGL         | Miễn 50% phí thường niên | 30000000 | Hồ sơ thông thường |
-#      | 00013333 | 001-MC Credit Classic | RGL         | Miễn 50% phí thường niên | 30000000 | Hồ sơ thông thường |
-
-#      | 00013330 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh        |
-#      | 00013331 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh        |
-#      | 00013332 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh        |
-#      | 00013333 | 001-Local Credit Gold | RGL         | Miễn 50% phí thường niên | 50000000 | Hồ sơ nhanh        |
-
-#      | 00013330 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 10000000 | Thẻ phụ            |
-#      | 00013331 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 10000000 | Thẻ phụ            |
-#      | 00013332 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 10000000 | Thẻ phụ            |
-#      | 00013333 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 10000000 | Thẻ phụ            |
+      | cif      | card type                       | client code | fee policy          | limit    | record type |
+      | 00003308 | 001-VISA Credit Classic Regular | RGL         | Thu phí thường niên | 10000000 | VIP         |
 
   @hspheduyetDVKD_assignauto44-02
   Scenario: approve with user a2nv
@@ -58,7 +45,7 @@ Feature: Hồ sơ phê duyệt tại Đơn vị kinh doanh - Assign auto
     Given I access link with "a3nv" and "Abc123!@#"
     When I search with the above request code from "QLPheDuyetYeuCau"
     And I send request with the above file code from A3 user
-    Then I select "Phân công tự động" user to approve
+    Then I confirm to assign automatically
 
 # Step sau tự check manual hs dc assign cho user nào trong file excel
 

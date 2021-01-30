@@ -519,5 +519,9 @@ public class registerSteps extends TestBase {
         driver.findElement(By.id("btnXacNhanGuiThongTin")).click();
     }
 
-
+    @Then("^I confirm to assign automatically$")
+    public void iConfirmToAssignAutomatically() throws Exception {
+        waitElement(By.id("btnXacNhanPheDuyet"));
+        driver.findElement(By.id("btnXacNhanPheDuyet")).click();
+    }
 }

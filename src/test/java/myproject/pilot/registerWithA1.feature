@@ -52,14 +52,16 @@ Feature: Register with user a1nv
     And I fill all data in Thông tin thẻ tín dụng
       | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 | TN04 - TN từ chủ DN |
     And I fill all data at Thông tin thẩm định as below
-      | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
+      | Công ty | Theo bút phê cấp phê duyệt | Từ chối | D01 - Thu nhập còn lại không đủ | <limit> |
+#      | Công ty | Theo bút phê cấp phê duyệt | Đồng ý | A01 - Quy định | <limit> |
+
     And I fill all data in Thông tin phê duyệt as below
-      | Phê duyệt cá nhân | Đồng ý với điều kiện |
+      | Phê duyệt cá nhân | Từ chối |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
-      | cif      | card type                           | client code | fee policy               | limit    |
-      | 01459716 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 30000000 |
+      | cif      | card type                           | client code | fee policy               | limit |
+      | 01656344 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 0     |
 
 

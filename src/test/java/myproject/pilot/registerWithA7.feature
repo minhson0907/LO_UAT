@@ -7,7 +7,7 @@ Feature: Register with user a7nv
     When I click New button
     Then I choose "Hồ sơ thẻ TTT tự kinh doanh"
     And I fill all data in Thông Tin Hồ sơ form as below
-      | Hồ sơ thẻ TTT tự kinh doanh | HO_400 ~ Trung tâm thẻ | <record type> | TN01 - TN từ lương |
+      | Hồ sơ thẻ TTT tự kinh doanh | 324 ~ Trung tâm thẻ | <record type> | TN01 - TN từ lương |
     And I fill all data in Thông tin chủ thẻ chính with cif as below
       | Customer CIF | <cif> | Đại học | Độc thân | Tự sở hữu | 20 | 10 | 123456 | Tuyên Quang | 2 | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | Tuyên Quang | Huyện Hàm Yên | Xã Tân Thành | 174 Phan Dang Luu | qcteam@hdbank.com.vn | 0983234167 |
     And I fill all data in Thông tin nghề nghiệp as below
@@ -25,21 +25,20 @@ Feature: Register with user a7nv
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
       | cif      | card type                             | client code | fee policy               | record type        |
-      | 00014364 | 001-MC Credit Gold                    | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 00014364 | 001-VISA Credit Classic Loan          | RGL         | Thu phí thường niên      | VIP                |
-      | 00014364 | 001-VISA Credit Classic Vietjet Loan  | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 00014364 | 001-VISA Credit Gold Loan             | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 00014364 | 001-VISA Credit VietJet VIP Partner   | RGL         | Thu phí thường niên      | VIP                |
-      | 00014364 | 001-VISA Credit Classic CFYC          | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 00014364 | 001-VISA Credit Classic Regular       | RGL         | Thu phí thường niên      | VIP                |
-      | 00014364 | 001-VISA Credit Classic VietJet       | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-#      | 01459716 | 001-VISA Credit Corporate Regular                |          | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 00014364 | 001-VISA Credit Gold Regular          | RGL         | Thu phí thường niên      | VIP                |
-      | 00014364 | 001-VISA Credit VietJet Sovico Staffs | BSS_STAFF   | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 00014364 | 001-VISA TIN DUNG XANH                | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 00014364 | 001-MasterCard TIN DUNG XANH          | RGL         | Thu phí thường niên      | VIP                |
-      | 00014364 | 001-Visa Credit Vietjet SOVICO VIP    | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 00014364 | 001-Local VCCS Credit Chain           | ABT         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 00014364 | 001-Local VCCS Credit Gold            | RGL         | Thu phí thường niên      | VIP                |
-      | 00014364 | 001-Local VCCS Credit Silver          | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 00014364 | 001-VISA Credit VietJet Platinum      | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-MC Credit Gold                    | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+      | 01656344  | 001-VISA Credit Classic Loan          | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-VISA Credit Classic Vietjet Loan  | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-VISA Credit Gold Loan             | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 00014364 | 001-VISA Credit VietJet VIP Partner   | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-VISA Credit Classic CFYC          | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 00014364 | 001-VISA Credit Classic Regular       | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-VISA Credit Classic VietJet       | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-VISA Credit Gold Regular          | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-VISA Credit VietJet Sovico Staffs | BSS_STAFF   | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-VISA TIN DUNG XANH                | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 00014364 | 001-MasterCard TIN DUNG XANH          | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-Visa Credit Vietjet SOVICO VIP    | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-Local VCCS Credit Chain           | ABT         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 00014364 | 001-Local VCCS Credit Gold            | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-Local VCCS Credit Silver          | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-VISA Credit VietJet Platinum      | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |

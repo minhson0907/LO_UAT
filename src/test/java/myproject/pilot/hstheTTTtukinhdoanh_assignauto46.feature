@@ -19,32 +19,31 @@ Feature: Hồ sơ thẻ TTT tự kinh doanh - auto assign
     And I fill all data in Đơn vị tiếp nhận hồ sơ as below
       | Ecom | HD003670 | HD000020 |
     And I fill all data in Thông tin thẻ tín dụng
-      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |
+      | CN/PGD HDBank | <client code> | Email | <fee policy> | Địa chỉ thường trú | Chi nhánh Lãnh Binh Thăng | <card type> | Không trích nợ tự động | QC TEST | 011252487 | 0983234167 | 12 |TN01 - TN từ lương |
     Then I save all information
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     And I send request with the above file code from A7 user
-    Then I select "Phân công tự động" user to confirm
+    Then I choose "Phân công tự động" user to approve
     Examples:
       | cif      | card type                             | client code | fee policy               | record type        |
-      | 01459716 | 001-MC Credit Gold                    | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 01459716 | 001-VISA Credit Classic Loan          | RGL         | Thu phí thường niên      | VIP                |
-      | 01459716 | 001-VISA Credit Classic Vietjet Loan  | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 01459716 | 001-VISA Credit Gold Loan             | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 01459716 | 001-VISA Credit VietJet VIP Partner   | RGL         | Thu phí thường niên      | VIP                |
-      | 01459716 | 001-VISA Credit Classic CFYC          | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 00014364 | 001-MC Credit Gold                    | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 01459716 | 001-VISA Credit Classic Loan          | RGL         | Thu phí thường niên      | VIP                |
+#      | 01459716 | 001-VISA Credit Classic Vietjet Loan  | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-VISA Credit Gold Loan             | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 01459716 | 001-VISA Credit VietJet VIP Partner   | RGL         | Thu phí thường niên      | VIP                |
+#      | 00014364 | 001-VISA Credit Classic CFYC          | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
       | 01459716 | 001-VISA Credit Classic Regular       | RGL         | Thu phí thường niên      | VIP                |
-      | 01459716 | 001-VISA Credit Classic VietJet       | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-#      | 01459716 | 001-VISA Credit Corporate Regular                |          | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 01459716 | 001-VISA Credit Gold Regular          | RGL         | Thu phí thường niên      | VIP                |
-      | 01459716 | 001-VISA Credit VietJet Sovico Staffs | BSS_STAFF   | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 01459716 | 001-VISA TIN DUNG XANH                | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 01459716 | 001-MasterCard TIN DUNG XANH          | RGL         | Thu phí thường niên      | VIP                |
-      | 01459716 | 001-Visa Credit Vietjet SOVICO VIP    | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 01459716 | 001-Local VCCS Credit Chain           | ABT         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 01459716 | 001-Local VCCS Credit Gold            | RGL         | Thu phí thường niên      | VIP                |
-      | 01459716 | 001-Local VCCS Credit Silver          | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
-      | 01459716 | 001-VISA Credit VietJet Platinum      | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 01459716 | 001-VISA Credit Classic VietJet       | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 01459716 | 001-VISA Credit Gold Regular          | RGL         | Thu phí thường niên      | VIP                |
+#      | 01459716 | 001-VISA Credit VietJet Sovico Staffs | BSS_STAFF   | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-VISA TIN DUNG XANH                | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 01459716 | 001-MasterCard TIN DUNG XANH          | RGL         | Thu phí thường niên      | VIP                |
+#      | 01459716 | 001-Visa Credit Vietjet SOVICO VIP    | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 00014364 | 001-Local VCCS Credit Chain           | ABT         | Miễn phí thường niên     | Hồ sơ thông thường |
+#      | 01459716 | 001-Local VCCS Credit Gold            | RGL         | Thu phí thường niên      | VIP                |
+#      | 01459716 | 001-Local VCCS Credit Silver          | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
+#      | 01459716 | 001-VISA Credit VietJet Platinum      | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
 
 
 #  @assign_TTT_self_assignauto-02
