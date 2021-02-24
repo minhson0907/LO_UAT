@@ -26,7 +26,7 @@ Feature: Register with user a7nv
     Examples:
       | cif      | card type                             | client code | fee policy               | record type        |
 #      | 00014364 | 001-MC Credit Gold                    | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
-      | 01656344  | 001-VISA Credit Classic Loan          | RGL         | Thu phí thường niên      | VIP                |
+      | 00013333  | 001-VISA Credit Classic Loan          | RGL         | Thu phí thường niên      | VIP                |
 #      | 00014364 | 001-VISA Credit Classic Vietjet Loan  | RGL         | Miễn 50% phí thường niên | Hồ sơ nhanh        |
 #      | 00014364 | 001-VISA Credit Gold Loan             | RGL         | Miễn phí thường niên     | Hồ sơ thông thường |
 #      | 00014364 | 001-VISA Credit VietJet VIP Partner   | RGL         | Thu phí thường niên      | VIP                |

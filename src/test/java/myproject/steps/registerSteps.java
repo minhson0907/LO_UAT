@@ -42,7 +42,8 @@ public class registerSteps extends TestBase {
     @And("^I fill all data in Thông Tin Hồ sơ as below$")
     public void iFillAllDataInThôngTinHồSơAsBelow(DataTable contactInfo) {
 //        driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='ms-dlgFrameContainer']/iframe")));
-        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'HeThongDungChung')]")));
+//        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'HeThongDungChung')]")));
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'LoaiNghiepVu')]")));
         List<List<String>> data = contactInfo.raw();
         Select loainghiepvu = new Select(driver.findElement(By.xpath("//select[contains(@id,'Chung_Bieumau')]")));
         loainghiepvu.selectByVisibleText(data.get(0).get(0));
@@ -308,7 +309,8 @@ public class registerSteps extends TestBase {
 
     @And("^I fill all data in Thông Tin Hồ sơ form as below$")
     public void iFillAllDataInThôngTinHồSơFormAsBelow(DataTable contactInfo) {
-        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'LoTheAddTTT')]")));
+//        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'LoTheAddTTT')]")));
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'LoaiNghiepVu')]")));
         List<List<String>> data = contactInfo.raw();
         Select loainghiepvu = new Select(driver.findElement(By.xpath("//select[contains(@id,'Chung_Bieumau')]")));
         loainghiepvu.selectByVisibleText(data.get(0).get(0));

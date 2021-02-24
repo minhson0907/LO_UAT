@@ -28,8 +28,8 @@ Feature: Register with user a1nv
     And I get the above file code
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
-      | cif      | card type                    | client code | fee policy           | limit    |
-      | 01459716 | 001-VISA Credit Classic Loan | RGL         | Miễn phí thường niên | 30000000 |
+      | cif      | card type                       | client code | fee policy               | limit    |
+      | 01482021 | 001-VISA Credit Classic VietJet | RGL         | Miễn 50% phí thường niên | 30000000 |
 
 
   @registerWithA1-02
@@ -62,6 +62,6 @@ Feature: Register with user a1nv
     And I verify the above request code exist in Quản lý table with status is "Hồ sơ mới"
     Examples:
       | cif      | card type                           | client code | fee policy               | limit |
-      | 01656344 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 0     |
+      | 01482021 | 001-VISA Credit VietJet VIP Partner | RGL         | Miễn 50% phí thường niên | 0     |
 
 
